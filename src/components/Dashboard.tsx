@@ -69,9 +69,7 @@ export default function Dashboard({ userType, onStartExam, onLogout, onAddUser, 
   const [exams, setExams] = useState<Exam[]>([]);
   const [stats, setStats] = useState({
     totalExams: 0,
-    completedExams: 0,
-    averageScore: 0,
-    totalUsers: 150
+    totalUsers: 0
   });
 
   useEffect(() => {
@@ -80,16 +78,9 @@ export default function Dashboard({ userType, onStartExam, onLogout, onAddUser, 
       await new Promise(resolve => setTimeout(resolve, 500));
       setExams(mockExams);
       
-      const completed = mockExams.filter(exam => exam.completed);
-      const avgScore = completed.length > 0 
-        ? completed.reduce((sum, exam) => sum + (exam.score || 0), 0) / completed.length 
-        : 0;
-
       setStats({
         totalExams: mockExams.length,
-        completedExams: completed.length,
-        averageScore: Math.round(avgScore),
-        totalUsers: 150
+        totalUsers: 0
       });
     };
 
@@ -144,7 +135,7 @@ export default function Dashboard({ userType, onStartExam, onLogout, onAddUser, 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
@@ -161,39 +152,13 @@ export default function Dashboard({ userType, onStartExam, onLogout, onAddUser, 
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground">Completed</p>
-                  <p className="text-2xl font-bold text-success">{stats.completedExams}</p>
+                  <p className="text-sm text-muted-foreground">Available Exams</p>
+                  <p className="text-2xl font-bold text-primary">{stats.totalExams}</p>
                 </div>
-                <Trophy className="h-8 w-8 text-success" />
+                <Trophy className="h-8 w-8 text-primary" />
               </div>
             </CardContent>
           </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Average Score</p>
-                  <p className="text-2xl font-bold text-warning">{stats.averageScore}%</p>
-                </div>
-                <Trophy className="h-8 w-8 text-warning" />
-              </div>
-            </CardContent>
-          </Card>
-
-          {userType === 'admin' && (
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Total Users</p>
-                    <p className="text-2xl font-bold">{stats.totalUsers}</p>
-                  </div>
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-              </CardContent>
-            </Card>
-          )}
         </div>
 
         {/* Exams Grid */}
