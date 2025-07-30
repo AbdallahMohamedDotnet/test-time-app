@@ -1,0 +1,415 @@
+/* Component Specific Styles */
+
+/* Exam Card Component */
+.exam-card {
+    transition: var(--transition-smooth);
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.exam-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.exam-card .card-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.exam-card .difficulty-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+}
+
+.exam-card .difficulty-easy {
+    background: var(--success-light);
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.exam-card .difficulty-medium {
+    background: var(--warning-light);
+    color: var(--warning);
+    border: 1px solid var(--warning);
+}
+
+.exam-card .difficulty-hard {
+    background: var(--danger-light);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+/* User Card Component */
+.user-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.user-card:hover {
+    background-color: #f8fafc;
+    border-color: var(--primary);
+}
+
+.user-card .user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.user-card .role-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.user-card .status-active {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.user-card .status-inactive {
+    background: #f1f5f9;
+    color: var(--muted);
+}
+
+/* Question Component */
+.question-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.question-card:hover {
+    background-color: #f8fafc;
+}
+
+.question-card .question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.question-card .question-number {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+
+.question-card .question-category {
+    background: #f1f5f9;
+    color: var(--muted);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.question-card .question-text {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.question-card .option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.5rem;
+}
+
+.question-card .option-item {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    border: 1px solid #e2e8f0;
+}
+
+.question-card .option-correct {
+    background: var(--success-light);
+    color: var(--success);
+    border-color: var(--success);
+    font-weight: 500;
+}
+
+.question-card .option-normal {
+    background: #f8fafc;
+    color: var(--muted);
+}
+
+/* Stats Card Component */
+.stats-card {
+    background: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.stats-card .stats-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stats-card .stats-icon.primary {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.stats-card .stats-icon.success {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.stats-card .stats-icon.warning {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+.stats-card .stats-value {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0.5rem 0;
+}
+
+.stats-card .stats-label {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Progress Component */
+.progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.progress-circle svg {
+    transform: rotate(-90deg);
+}
+
+.progress-circle .progress-bg {
+    fill: none;
+    stroke: #e2e8f0;
+    stroke-width: 8;
+}
+
+.progress-circle .progress-fill {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.progress-circle .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Modal Component */
+.modal-content {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 1rem 1rem 0 0;
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #e2e8f0;
+    border-radius: 0 0 1rem 1rem;
+    padding: 1rem 1.5rem;
+}
+
+/* Toast Component */
+.toast-custom {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.toast-custom .toast-header {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0.75rem 1rem;
+}
+
+.toast-custom .toast-body {
+    padding: 0.75rem 1rem;
+}
+
+.toast-custom.toast-success {
+    border-left: 4px solid var(--success);
+}
+
+.toast-custom.toast-error {
+    border-left: 4px solid var(--danger);
+}
+
+.toast-custom.toast-warning {
+    border-left: 4px solid var(--warning);
+}
+
+.toast-custom.toast-info {
+    border-left: 4px solid var(--primary);
+}
+
+/* Loading Component */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Empty State Component */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+}
+
+.empty-state .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state .empty-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.empty-state .empty-description {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+/* Form Group Component */
+.form-group-custom {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-custom .form-label {
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.form-group-custom .form-text {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+}
+
+.form-group-custom .input-group {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.form-group-custom .input-group .form-control {
+    border-radius: 0;
+    border-right: none;
+}
+
+.form-group-custom .input-group .btn {
+    border-radius: 0;
+    border-left: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .exam-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stats-card {
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    
+    .stats-card .stats-value {
+        font-size: 1.5rem;
+    }
+    
+    .question-card {
+        padding: 0.75rem;
+    }
+    
+    .question-card .option-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-card {
+        margin-bottom: 0.75rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+}
