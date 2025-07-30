@@ -4,8 +4,9 @@ import Dashboard from '@/components/Dashboard';
 import ExamPage from '@/components/ExamPage';
 import ResultPage from '@/components/ResultPage';
 import AddUser from '@/components/AddUser';
+import AddExam from '@/components/AddExam';
 
-type AppState = 'login' | 'dashboard' | 'exam' | 'result' | 'addUser';
+type AppState = 'login' | 'dashboard' | 'exam' | 'result' | 'addUser' | 'addExam';
 type UserType = 'user' | 'admin';
 
 interface ExamResult {
@@ -53,6 +54,10 @@ const Index = () => {
     setCurrentState('addUser');
   };
 
+  const handleAddExam = () => {
+    setCurrentState('addExam');
+  };
+
   const handleRetakeExam = () => {
     setCurrentState('exam');
   };
@@ -68,6 +73,7 @@ const Index = () => {
           onStartExam={handleStartExam}
           onLogout={handleLogout}
           onAddUser={handleAddUser}
+          onAddExam={handleAddExam}
         />
       );
     
@@ -91,6 +97,9 @@ const Index = () => {
     
     case 'addUser':
       return <AddUser onBackToDashboard={handleBackToDashboard} />;
+    
+    case 'addExam':
+      return <AddExam onBackToDashboard={handleBackToDashboard} />;
     
     default:
       return <Login onLogin={handleLogin} />;

@@ -9,6 +9,7 @@ interface DashboardProps {
   onStartExam: (examId: string) => void;
   onLogout: () => void;
   onAddUser: () => void;
+  onAddExam: () => void;
 }
 
 interface Exam {
@@ -64,7 +65,7 @@ const mockExams: Exam[] = [
   },
 ];
 
-export default function Dashboard({ userType, onStartExam, onLogout, onAddUser }: DashboardProps) {
+export default function Dashboard({ userType, onStartExam, onLogout, onAddUser, onAddExam }: DashboardProps) {
   const [exams, setExams] = useState<Exam[]>([]);
   const [stats, setStats] = useState({
     totalExams: 0,
@@ -123,9 +124,14 @@ export default function Dashboard({ userType, onStartExam, onLogout, onAddUser }
             </div>
             <div className="flex items-center space-x-3">
               {userType === 'admin' && (
-                <Button onClick={onAddUser} variant="outline">
-                  Add User
-                </Button>
+                <>
+                  <Button onClick={onAddUser} variant="outline">
+                    Add User
+                  </Button>
+                  <Button onClick={onAddExam} variant="default">
+                    Add Exam
+                  </Button>
+                </>
               )}
               <Button onClick={onLogout} variant="ghost" size="sm">
                 <LogOut className="h-4 w-4 mr-2" />
